@@ -1,0 +1,43 @@
+.navBarContainer{
+    width: 100%;
+    height: 8%;
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-top: 1.5%;
+    transition: all 0.5s;
+}
+
+.logoContainer{
+    float: left;
+    margin-left: 2%;
+}
+
+.listDiv{
+    float: right;
+    margin-right: 1%;
+}
+
+.listContainer{
+    display: inline;
+    list-style-type: none;
+}
+
+.list{
+    display: inline;
+    margin-right: 1em;
+    margin-left: 1em;
+}
+
+.list a{
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.list a:hover{
+    font-size: 1.3em;
+}
