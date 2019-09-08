@@ -57,7 +57,7 @@ export class Card extends Component{
                     <div className = "price">
                         <span>{`Rs. ${this.props.price} / kg`}</span>
                     </div>
-                    <div className = "quantity">
+                    <div className = {styles.quantity}>
                         <label htmlFor = "quantity"> Quantity
                             <input 
                             className = {styles.input} 

@@ -1,5 +1,18 @@
-let productNames = ["Tomato","Potato","Onion","Cucumber","Pumpkin","Cabbage","Beans","Brinjal","Drumstick","Spinach"];
+let productNames = [
+    "Tomato",
+                    "Potato",
+                    "Onion",
+                    "Cucumber",
+                    "Pumpkin",
+                    "Cabbage",
+                    "Beans",
+                    "Brinjal",
+                    "Drumstick",
+                    "Spinach"
+                ];
+                
 let prices = [23,45,15,60,70,10,65,55,5,40];
+
 let images = [
     "https://images-na.ssl-images-amazon.com/images/I/81avkS31xRL._SL1500_.jpg",
     "https://images-na.ssl-images-amazon.com/images/I/81TJK4QAa2L._SL1500_.jpg",
@@ -13,6 +26,7 @@ let images = [
     "https://5.imimg.com/data5/PI/KX/MY-46595757/fresh-spinach-28palak-29-281kg-29-500x500.png"
 
 ];
+
 let colors = [
     "#f52525",
     "#fc851c",

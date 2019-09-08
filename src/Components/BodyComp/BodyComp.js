@@ -1,35 +1,22 @@
 import React, {Component} from 'react';
+import {Route, Switch} from 'react-router-dom';
 import styles from './BodyComp.module.css';
-import { Card } from '../Card/Card';
-import dataArr from '../../data/data'
+
+import { Vegetables} from '../Vegetables/Vegetables';
+import { Fruits } from '../Fruits/Fruits';
+import { Cart } from '../Cart/Cart';
 
 export class BodyComp extends Component{
 
-    constructor(){
-        super();
-        this.state = {
-            products: [...dataArr]
-        }
-    }
-
-    componentDidMount(){
-        console.log("logging data...");
-        this.setState({
-            products: dataArr
-        })
-        console.log(this.state.products);
-    }
-    
     render(){
-        const dataArrays = this.state.products.map(data=>{
-            return <Card key = {data.id} name = {data.productName} price = {data.price} imageurl = {data.image} color = {data.color} />
-        });
-
         return (
-            <div>
             <div className = {styles.container}>
-                {dataArrays}
-            </div>
+                <Switch>
+                    <Route path = "/" exact component = {Vegetables} />
+                    <Route path = "/vegetables" component = {Vegetables} />
+                    <Route path = "/fruits" component = {Fruits} />
+                    <Route path = "/cart" component = {Cart} />
+                </Switch>
             </div>
         )
     }
