@@ -18,7 +18,7 @@
 
 .listDiv{
     float: right;
-    margin-right: 1%;
+    margin-right: 5%;
 }
 
 .listContainer{
@@ -28,8 +28,8 @@
 
 .list{
     display: inline;
-    margin-right: 1em;
     margin-left: 1em;
+    margin-right: 1em;
 }
 
 .list a{
@@ -40,4 +40,29 @@
 
 .list a:hover{
     font-size: 1.3em;
+}
+
+.cartNavContainer{
+    display: inline-block;
+    position: relative;
+    margin-right: 1em;
+}
+
+.cartNavName{
+    z-index: 1;
+    display: inline;
+}
+
+.cartNavBadge{
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    top:70%;
+    left:90%;
+    width: 50%;
+    height: 100%;
+    border-radius: 50%;
+    background: red;
+    font-size: 1em;
+    z-index: 2;
 }
