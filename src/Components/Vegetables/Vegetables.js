@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
-import { Card } from '../Card/Card';
-import dataArr from '../../data/data';
+import { connect } from 'react-redux';
+import Card from '../Card/Card';
 
 import styles from './Vegetables.module.css';
 
-export class Vegetables extends Component{
-
-    constructor(){
-        super();
-        this.state = {
-            products: [...dataArr]
-        }
-    }
-
-    componentDidMount(){
-        console.log("logging data...");
-        this.setState({
-            products: dataArr
-        })
-        console.log(this.state.products);
-    }
+class Vegetables extends Component{
     
     render(){
-        const dataArrays = this.state.products.map(data=>{
-            return <Card key = {data.id} name = {data.productName} price = {data.price} imageurl = {data.image} color = {data.color} />
+        let products = Object.values(this.props.datas).filter(data=>{
+            return data.productDetails.category === "Vegetables";
+        }).map(data=>{
+            return data;
+        })
+        const dataArrays = products.map(data=>{
+            return <Card 
+                    key = {data.productDetails.id}
+                    id = {data.productDetails.id} 
+                    name = {data.productDetails.productName} 
+                    price = {data.productDetails.price} 
+                    imageurl = {data.productDetails.productImg} 
+                    color = {data.productDetails.productColor} 
+                    cartStatus = {data.cartDetails.cartAdded}
+                    />
         });
 
         return (
@@ -36,3 +34,8 @@ export class Vegetables extends Component{
     }
 }
 
+const mapStateToProps = state => {
+    return {datas: {...state}}
+}
+
+export default connect(mapStateToProps)(Vegetables);

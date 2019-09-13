@@ -1,5 +1,13 @@
+let category = [
+                "Vegetables",
+                "Fruits",
+                "Dry Fruits",
+                "Food Grains",
+                "Masalas",
+                "Kitchen Accessories"
+]
 let productNames = [
-    "Tomato",
+                    "Tomato",
                     "Potato",
                     "Onion",
                     "Cucumber",
@@ -44,6 +52,7 @@ let dataArr = [];
 
 for(let i = 0; i < productNames.length; i++){
     dataArr.push({
+        category: category[0],
         productName: productNames[i],
         price: prices[i],
         image: images[i],

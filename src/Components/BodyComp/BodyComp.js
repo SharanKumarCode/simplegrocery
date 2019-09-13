@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import styles from './BodyComp.module.css';
 
-import { Vegetables} from '../Vegetables/Vegetables';
+import Vegetables from '../Vegetables/Vegetables';
 import { Fruits } from '../Fruits/Fruits';
-import { Cart } from '../Cart/Cart';
+import Cart from '../Cart/Cart';
 
 export class BodyComp extends Component{
 
