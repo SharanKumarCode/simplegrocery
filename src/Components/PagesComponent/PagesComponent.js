@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Card from '../Card/Card';
 
-import styles from './Vegetables.module.css';
+import styles from './PagesComponent.module.css';
 
-class Vegetables extends Component{
+class PagesComponent extends Component{
+
+    constructor(props){
+        super(props);
+    }
     
     render(){
         let products = Object.values(this.props.datas).filter(data=>{
-            return data.productDetails.category === "Vegetables";
+            return data.productDetails.category === this.props.pageCategoryName;
         }).map(data=>{
             return data;
         })
@@ -38,4 +42,4 @@ const mapStateToProps = state => {
     return {datas: {...state}}
 }
 
-export default connect(mapStateToProps)(Vegetables);
+export default connect(mapStateToProps)(PagesComponent);

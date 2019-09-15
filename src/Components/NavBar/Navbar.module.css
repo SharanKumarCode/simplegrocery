@@ -6,7 +6,7 @@
     font-weight: bold;
     position: absolute;
     top: 8%;
-    left: 0;
+    left: 4%;
     padding-top: 1.5%;
     transition: all 0.5s;
 }
@@ -19,8 +19,8 @@
 
 .list{
     display: inline;
-    margin-right: 2em;
-    margin-left: 2em;
+    margin-right: 2.5em;
+    margin-left: 2.5em;
 }
 
 .list a{
