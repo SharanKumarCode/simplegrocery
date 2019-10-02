@@ -12,10 +12,6 @@ export class BodyComp extends Component{
         return (
             <div className = {styles.container}>
                 <Switch>
-                    {/* <Route path = "/" exact component = {Vegetables} />
-                    <Route path = "/vegetables" component = {Vegetables} />
-                    <Route path = "/fruits" component = {Fruits} />
-                    <Route path = "/cart" component = {Cart} /> */}
                     <Route path = "/" exact render = {()=><PagesComponent pageCategoryName = {pageCompNames[0]}/>}></Route>
                     <Route path = "/vegetables" render = {()=><PagesComponent pageCategoryName = {pageCompNames[0]}/>}></Route>
                     <Route path = "/fruits" render = {()=><PagesComponent pageCategoryName = {pageCompNames[1]}/>}></Route>

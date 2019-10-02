@@ -22,7 +22,7 @@ let images = [
 
 let colors = [
 "#fcfcf7",
-"#3b1717",
+"#db4f0d",
 "#633a3a",
 "#80532a",
 "#758f22",
@@ -42,4 +42,4 @@ id: 0
 })
 };
 
-export default dataDryFruitsArr;
+module.exports = dataDryFruitsArr;

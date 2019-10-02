@@ -1,3 +1,5 @@
+
+
 export const cartAction = (action) => {
     switch(action.type){
         case "addCart":
@@ -10,11 +12,11 @@ export const cartAction = (action) => {
                 type: "REMOVE_CART",
                 payload: action.payload
             }
-        case "clearCart":
-            return {
-                type: "CLEAR_CART",
-                payload: action.payload
-            }
+        case "changeLoadingStatus":
+                return {
+                    type: "CHANGE_LOADING_STATUS",
+                    payload: action.payload
+                }
         default:
             return null;
     }

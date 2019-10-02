@@ -46,4 +46,4 @@ id: 0
 })
 };
 
-export default dataFoodGrainsArr;
+module.exports = dataFoodGrainsArr;
