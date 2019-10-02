@@ -1,29 +1,22 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import styles from './Card.module.css';
+import { cartAction } from '../../actions/cartAction';
 
-export class Card extends Component{
+class Card extends Component{
 
     constructor(props){
         super(props);
         this.state = {
             hoverChange: {},
-            color: '',
-            imageUrl : ''
+            quantity: 0,
         }
-    }
-
-    componentDidMount(){
-        this.setState({
-            color: this.props.color,
-            imageUrl : this.props.imageurl
-        });
-        console.log(this.state.imageUrl);
     }
 
     hoverEnter(){
         this.setState({
             hoverChange : {
-                background: this.state.color,
+                background: this.props.color,
                 clipPath: "polygon(0 0, 0% 20%, 0 51%, 0% 80%, 0 100%, 53% 100%, 100% 100%, 100% 80%, 100% 49%, 100% 20%, 100% 0, 50% 0)"
             }
         })
@@ -38,9 +31,62 @@ export class Card extends Component{
         })
     }
 
+    quantityChange(operation){
+        if(operation === "minus"){
+            if(this.state.quantity >= 0.5){
+                this.setState({
+                    quantity: this.state.quantity - 0.5
+                })
+            }
+        } else {
+            if(this.state.quantity <= 10){
+                this.setState({
+                    quantity: this.state.quantity + 0.5
+                })
+            }
+        }
+    }
+
+    addCart(){
+        if(this.state.quantity > 0){
+        this.props.cartAction({
+            type: "addCart",
+            payload: {
+            ID: this.props.id,
+            quantity: this.state.quantity
+        }})
+        this.props.cartAction({
+            type: "changeLoadingStatus",
+            payload: {
+                isLoading: true
+            }
+        })
+        setTimeout(()=>{
+            this.props.cartAction({
+                type: "changeLoadingStatus",
+                payload: {
+                    isLoading: false
+                }
+        })},3000);
+        }
+    }
+
     render(){
         const imageStyle = {
-            backgroundImage : "url("+this.state.imageUrl+")"
+            backgroundImage : "url("+this.props.imageurl+")"
+        }
+
+        let cartStatusStyle = {}
+        if(this.props.cartStatus){
+            cartStatusStyle = {
+                background: "whitesmoke",
+                color: "grey"
+            }
+        } else {
+            cartStatusStyle = {
+                background: "rgb(39, 38, 38)",
+                color: "white"
+            }
         }
 
         return(
@@ -58,19 +104,22 @@ export class Card extends Component{
                         <span>{`Rs. ${this.props.price} / kg`}</span>
                     </div>
                     <div className = {styles.quantity}>
-                        <label htmlFor = "quantity"> Quantity
+                        <span>Quantity</span>
+                        <div className = {styles.innerButtons} onClick = {this.quantityChange.bind(this,"minus")}>-</div>
+                        <label htmlFor = "quantity">
                             <input 
                             className = {styles.input} 
                             name = "quantity" 
-                            type = "number" 
-                            min = "0" 
-                            max = "10" 
-                            step="0.5" 
+                            type = "text" 
                             placeholder = "0"
-                            onKeyDown = {()=>{return false}} />Kg
+                            value = {this.state.quantity}
+                            readOnly
+                            onKeyDown = {()=>{return false}} />
                         </label>
+                        <div className = {styles.innerButtons} onClick = {this.quantityChange.bind(this,"plus")}>+</div>
+                        <span>Kg</span>
                     </div>
-                    <div className = {styles.cartAdd}>
+                    <div className = {styles.cartAdd} onClick = {this.addCart.bind(this)} style = {cartStatusStyle}>
                         <span>ADD TO CART</span>
                     </div>
                 </div>
@@ -81,3 +130,9 @@ export class Card extends Component{
     )
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+    cartAction: (payload) => dispatch(cartAction(payload))
+});
+
+export default connect(null,mapDispatchToProps)(Card);

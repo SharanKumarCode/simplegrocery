@@ -17,7 +17,6 @@ export class NavBar extends Component {
                         <li className = {styles.list}><Link to ="/dryFruits">Dry Fruits</Link></li>
                         <li className = {styles.list}><Link to ="/foodGrains">Food Grains</Link></li>
                         <li className = {styles.list}><Link to ="/masalas">Masalas & Spices</Link></li>
-                        <li className = {styles.list}><Link to ="/kitchen">Kitchen Accessories</Link></li>
                     </ul>
                 </div>
             </nav>
