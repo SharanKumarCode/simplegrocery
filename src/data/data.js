@@ -1,20 +1,18 @@
-import dataVegetablesArr from './dataVegetables';
-import dataDryFruitsArr from './dataDryFruits';
-import dataFoodGrainsArr from'./dataFoodGrains';
-import dataFruitsArr from './dataFruits';
-import dataMasalasArr from './dataMasalas';
+const dataVegetablesArr = require('./dataVegetables');
+const dataDryFruitsArr = require('./dataDryFruits');
+const dataFoodGrainsArr = require('./dataFoodGrains');
+const dataFruitsArr = require('./dataFruits');
+const dataMasalasArr = require('./dataMasalas');
 
-console.log(dataVegetablesArr);
-
-let importedDatas =[dataVegetablesArr, dataDryFruitsArr, dataFoodGrainsArr, dataFruitsArr, dataMasalasArr];
+let constedDatas =[dataVegetablesArr, dataDryFruitsArr, dataFoodGrainsArr, dataFruitsArr, dataMasalasArr];
 let dataArr = [];
 let idCount = 0;
 
-for(let i = 0; i < importedDatas.length; i++){
-    for(let j = 0; j < importedDatas[i].length; j++){
-        importedDatas[i][j].id = idCount ++;
-        dataArr.push(importedDatas[i][j]);
+for(let i = 0; i < constedDatas.length; i++){
+    for(let j = 0; j < constedDatas[i].length; j++){
+        constedDatas[i][j].id = idCount ++;
+        dataArr.push(constedDatas[i][j]);
     }
 }
 
-export default dataArr;
+module.exports = dataArr;

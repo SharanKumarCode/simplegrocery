@@ -49,7 +49,7 @@ class Cart extends Component{
 }
 
 const mapStateToProps = state => {
-    let filteredState = Object.values(state).filter(data=>{
+    let filteredState = Object.values(state.Products).filter(data=>{
         return data.cartDetails.cartAdded === true;
     })
 

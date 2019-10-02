@@ -50,4 +50,4 @@ id: 0
 })
 };
 
-export default dataFruitsArr;
+module.exports = dataFruitsArr;
