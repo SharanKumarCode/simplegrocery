@@ -28,7 +28,7 @@ let images = [
 let colors = [
 "#9e9899",
 "#737373",
-"#b04f21",
+"#5c1212",
 "#7d6b6b",
 "#736868",
 "#b56e10",
@@ -50,4 +50,4 @@ id: 0
 })
 };
 
-module.exports = dataMaslasArr;
+export default dataMaslasArr;

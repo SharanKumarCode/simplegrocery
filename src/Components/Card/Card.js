@@ -32,6 +32,7 @@ class Card extends Component{
     }
 
     quantityChange(operation){
+        console.log(operation);
         if(operation === "minus"){
             if(this.state.quantity >= 0.5){
                 this.setState({
@@ -55,19 +56,6 @@ class Card extends Component{
             ID: this.props.id,
             quantity: this.state.quantity
         }})
-        this.props.cartAction({
-            type: "changeLoadingStatus",
-            payload: {
-                isLoading: true
-            }
-        })
-        setTimeout(()=>{
-            this.props.cartAction({
-                type: "changeLoadingStatus",
-                payload: {
-                    isLoading: false
-                }
-        })},3000);
         }
     }
 
@@ -113,7 +101,6 @@ class Card extends Component{
                             type = "text" 
                             placeholder = "0"
                             value = {this.state.quantity}
-                            readOnly
                             onKeyDown = {()=>{return false}} />
                         </label>
                         <div className = {styles.innerButtons} onClick = {this.quantityChange.bind(this,"plus")}>+</div>

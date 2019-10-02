@@ -5,9 +5,13 @@ import Card from '../Card/Card';
 import styles from './PagesComponent.module.css';
 
 class PagesComponent extends Component{
+
+    constructor(props){
+        super(props);
+    }
     
     render(){
-        let products = this.props.datas.Products.filter(data=>{
+        let products = Object.values(this.props.datas).filter(data=>{
             return data.productDetails.category === this.props.pageCategoryName;
         }).map(data=>{
             return data;

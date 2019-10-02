@@ -8,6 +8,7 @@ class TopBar extends Component {
     render(){
 
         let cartQuantity = Object.values(this.props.datas).length;
+        console.log(Object.values(this.props.datas));
         
         return (
             <nav className = {styles.navBarContainer}>
@@ -28,7 +29,7 @@ class TopBar extends Component {
                             </div>
                         </Link>
                     </li>
-                    <li className = {styles.list} style = {{fontSize: "0.8em", marginRight: "0.2em"}}><a href="#contact">About Us</a></li>
+                    <li className = {styles.list} style = {{fontSize: "0.8em", marginRight: "0.2em"}}><a href="#contact">Contact Us</a></li>
                 </ul>
                 </div>
             </nav>
@@ -37,7 +38,7 @@ class TopBar extends Component {
 }
 
 const mapStateToProps = state => {
-    let filteredState = state.Products.filter(data=>{
+    let filteredState = Object.values(state).filter(data=>{
         return data.cartDetails.cartAdded === true;
     })
 

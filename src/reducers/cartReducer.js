@@ -1,7 +1,7 @@
 export default (state,action) => {
     switch(action.type){
         case "ADD_CART":
-            let finalStateAdd = state.Products.map(data=>{
+            let finalStateAdd = Object.values(state).map(data=>{
                 if(data.productDetails.id === action.payload.ID){
                     return {
                         productDetails:data.productDetails,
@@ -15,13 +15,10 @@ export default (state,action) => {
                 }
             });
             
-            return { 
-                Products : finalStateAdd,
-                Others: state.Others
-            };
+            return { ...finalStateAdd };
 
         case "REMOVE_CART":
-                let finalStateRem = state.Products.map(data=>{
+                let finalStateRem = Object.values(state).map(data=>{
                     if(data.productDetails.id === action.payload.ID){
                         return {
                             productDetails:data.productDetails,
@@ -36,18 +33,7 @@ export default (state,action) => {
                     }
                 });
                 
-                return { 
-                    Products : finalStateRem,
-                    Others: state.Others
-                };
-
-        case "CHANGE_LOADING_STATUS":
-                return {
-                Products : state.Products,
-                Others: {
-                    isLoading: action.payload.isLoading
-                    }
-                }
+                return { ...finalStateRem };
         default:
             return state;
     }

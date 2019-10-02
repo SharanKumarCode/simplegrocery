@@ -55,4 +55,4 @@ for(let i = 0; i < productNames.length; i++){
     })
 };
 
-module.exports = dataVegetablesArr;
+export default dataVegetablesArr;

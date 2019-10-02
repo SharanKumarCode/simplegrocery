@@ -1,5 +1,4 @@
-import { createStore , applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+import { createStore } from 'redux';
 import cartReducer from './reducers/cartReducer';
 import dataArr from './data/data';
 
@@ -23,29 +22,8 @@ dataArr.map(data=>{
     })
 })
 
-initialState.Products = initialState;
-initialState.Others = {
-    isLoading: false
-}
-
-const middlewares = [thunk];
-
-const composeEnhancers =
-  typeof window === 'object' &&
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-      // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
-    }) : compose;
-
-const enhancer = composeEnhancers(
-  applyMiddleware(...middlewares)
-  // other store enhancers if any
-);
-
 function configureStore(state = initialState){
-    console.log(state);
-    return createStore(cartReducer,state,enhancer);
+    return createStore(cartReducer,state,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 }
-
 
 export default configureStore;
