@@ -11,7 +11,7 @@ let productNames = [
     "Pomogranate"
 ];
 
-let prices = [140,40,30,60,50,73,115,120];
+let prices = [140,40,30,100000,50,73,115,120];
 
 let images = [
 "https://5.imimg.com/data5/LM/DU/MY-22954806/apple-fruit-500x500.jpg",
